@@ -11,9 +11,9 @@ This project is a boilerplate setup for web automation using Java, Maven, TestNG
 
 ## Project Structure
 
-- `src/main/java/com/example/pages` – Page classes (POM)
-- `src/test/java/com/example/tests` – Test classes
-- `src/test/java/com/example/utils` – Utility/base classes
+- `src/main/java/com/automation/pages` – Page classes (POM)
+- `src/test/java/com/automation/tests` – Test classes
+- `src/test/java/com/automation/utils` – Utility/base classes
 
 ## Getting Started
 
