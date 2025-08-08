@@ -1,7 +1,7 @@
 package com.automation.base;
 
 import com.automation.listeners.TestListener;
-import com.automation.utils.ConfigManager;
+import com.automation.utils.ConfigReader;
 import com.automation.utils.ExtentReportManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
@@ -37,8 +37,8 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        String browserType = ConfigManager.getProperty("browser", "chrome");
-        String applicationUrl = ConfigManager.getProperty("url");
+        String browserType = ConfigReader.getProperty("browser");
+        String applicationUrl = ConfigReader.getProperty("url");
 
         driver = initializeDriver(browserType);
         driverThreadLocal.set(driver);
@@ -88,7 +88,7 @@ public abstract class BaseTest {
                 chromeOptions.addArguments("--disable-web-security");
                 chromeOptions.addArguments("--disable-features=VizDisplayCompositor");
 
-                if ("true".equalsIgnoreCase(ConfigManager.getProperty("headless", "false"))) {
+                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
                     chromeOptions.addArguments("--headless");
                     logger.info("Chrome running in headless mode");
                 }
@@ -101,7 +101,7 @@ public abstract class BaseTest {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
 
-                if ("true".equalsIgnoreCase(ConfigManager.getProperty("headless", "false"))) {
+                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
                     firefoxOptions.addArguments("--headless");
                     logger.info("Firefox running in headless mode");
                 }
@@ -116,7 +116,7 @@ public abstract class BaseTest {
                 edgeOptions.addArguments("--disable-notifications");
                 edgeOptions.addArguments("--disable-popup-blocking");
 
-                if ("true".equalsIgnoreCase(ConfigManager.getProperty("headless", "false"))) {
+                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
                     edgeOptions.addArguments("--headless");
                     logger.info("Edge running in headless mode");
                 }
