@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AutomationTestSuite" parallel="false" thread-count="1">
+    
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="qa"/>
+    
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+    </listeners>
+    
+    <test name="SmokeTests">
+        <classes>
+            <class name="com.automation.tests.LoginTest"/>
+            <class name="com.automation.tests.HomeTest"/>
+        </classes>
+    </test>
+    
+    <test name="RegressionTests">
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+    
+</suite>

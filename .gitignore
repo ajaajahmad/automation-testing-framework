@@ -27,6 +27,7 @@ target/
 .classpath
 .project
 .settings/
+.factorypath
 
 # OS Files
 .DS_Store
