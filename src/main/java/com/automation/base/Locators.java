@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Locators {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
@@ -19,7 +19,9 @@ public class Locators {
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("John");
 		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@doamin.com");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@type='text'][2]")).clear();
+		Thread.sleep(2000);
 		driver.quit();
 	}
 
