@@ -21,6 +21,7 @@ public class DynamicLocators {
 		System.out.println(driver.findElement(By.tagName("p")).getText());
 		Assert.assertEquals(driver.findElement(By.tagName("p")).getText(), "You are successfully logged in.");
 		Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(), "Hello "+name+",");
+		driver.findElement(By.xpath("//button[text()=\"Log Out\"]")).click();
 		driver.quit();
 	}
 
