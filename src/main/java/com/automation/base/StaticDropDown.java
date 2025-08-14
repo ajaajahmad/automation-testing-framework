@@ -20,6 +20,11 @@ public class StaticDropDown {
 		Select dropDown = new Select(staticDropDown);
 		dropDown.selectByIndex(3);
 		System.out.println(dropDown.getFirstSelectedOption().getText());
+		dropDown.selectByVisibleText("AED");
+		System.out.println(dropDown.getFirstSelectedOption().getText());
+		dropDown.selectByValue("INR");
+		System.out.println(dropDown.getFirstSelectedOption().getText());
+
 		driver.quit();
 	}
 
