@@ -17,8 +17,15 @@ public class IncreamentalBTN {
 
 		driver.findElement(By.xpath("//div[text()='Passengers']")).click();
 
-		for (int click = 1; click < 5; click++) {
+//		for (int click = 1; click < 5; click++) {
+//			driver.findElement(By.xpath("//*[@data-testid='Adult-testID-plus-one-cta']")).click();
+//		}
+
+		int click = 1;
+
+		while (click < 5) {
 			driver.findElement(By.xpath("//*[@data-testid='Adult-testID-plus-one-cta']")).click();
+			click++;
 		}
 
 		driver.quit();
