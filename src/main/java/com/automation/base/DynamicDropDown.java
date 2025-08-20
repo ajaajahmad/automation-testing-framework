@@ -19,8 +19,8 @@ public class DynamicDropDown {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[@value='MAA']")).click();
 
-		driver.findElement(By.xpath("//a[@value='BLR']")).click();
-
+		driver.findElement(By.xpath("(//a[@value='BLR'])[2]")).click();
+		Thread.sleep(2000);
 		driver.quit();
 	}
 
