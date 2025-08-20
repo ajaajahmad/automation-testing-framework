@@ -18,7 +18,7 @@ public class DynamicDropDown {
 		driver.findElement(By.cssSelector("#ctl00_mainContent_ddl_originStation1_CTXT")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[@value='MAA']")).click();
-		
+
 		driver.findElement(By.xpath("//a[@value='BLR']")).click();
 
 		driver.quit();
