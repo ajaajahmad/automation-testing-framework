@@ -3,7 +3,7 @@ package com.automation.base;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arralist {
+public class ArrList {
 
 	public static void main(String[] args) {
 		ArrayList<String> a = new ArrayList<>();
