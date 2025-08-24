@@ -18,12 +18,12 @@ public class HandleDatePicker {
 		driver.findElement(By.cssSelector("#ctl00_mainContent_ddl_originStation1_CTXT")).click();
 		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='MAA']"))
 				.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='BLR']"))
 				.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.quit();
 	}
 
