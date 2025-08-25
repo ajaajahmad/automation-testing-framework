@@ -21,12 +21,13 @@ public class EnableDisableElement {
 		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
 		// System.out.println(driver.findElement(By.name("ctl00_mainContent_view_date2")).isEnabled());
 		System.out.println(driver.findElement(By.id("Div1")).getDomAttribute("style"));
-		if (driver.findElement(By.id("Div1")).getDomAttribute("style").contains("1"))
-			;
-		{
+		if (driver.findElement(By.id("Div1")).getDomAttribute("style").contains("0.5")) {
 			System.out.println("It's enabled");
 			Assert.assertTrue(true);
+		} else {
+			Assert.assertTrue(false);
 		}
+
 		driver.quit();
 	}
 
