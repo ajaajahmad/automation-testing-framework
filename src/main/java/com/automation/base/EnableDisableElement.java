@@ -16,9 +16,9 @@ public class EnableDisableElement {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
-		System.out.println(driver.findElement(By.name("ctl00_mainContent_view_date2")).isEnabled());
+		//System.out.println(driver.findElement(By.name("ctl00_mainContent_view_date2")).isEnabled());
 		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
-		System.out.println(driver.findElement(By.name("ctl00_mainContent_view_date2")).isEnabled());
+		//System.out.println(driver.findElement(By.name("ctl00_mainContent_view_date2")).isEnabled());
 
 		driver.quit();
 	}
