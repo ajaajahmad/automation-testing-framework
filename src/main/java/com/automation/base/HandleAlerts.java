@@ -11,7 +11,7 @@ public class HandleAlerts {
 	public static void main(String[] args) {
 
 		String text = "ajaaj";
-		
+
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
@@ -19,6 +19,7 @@ public class HandleAlerts {
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		driver.findElement(By.id("name")).sendKeys(text);
 		driver.findElement(By.cssSelector("[id='alertbtn']")).click();
+		System.out.println(driver.switchTo().alert().getText());
 		driver.switchTo().alert().accept();
 
 		driver.quit();
