@@ -37,9 +37,12 @@ public class EndToEndFlow {
 
 		driver.findElement(By.id("divpaxinfo")).click();
 
-//		for (int click = 1; click < 5; click++) {
-//			driver.findElement(By.xpath("//*[@data-testid='Adult-testID-plus-one-cta']")).click();
-//		}
+		for (int click = 1; click < 5; click++) {
+			driver.findElement(By.id("hrefIncAdt")).click();
+		}
+
+		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+		Thread.sleep(5000);
 
 		driver.quit();
 	}
