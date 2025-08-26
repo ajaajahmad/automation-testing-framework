@@ -27,11 +27,11 @@ public class EndToEndFlow {
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
 
-		driver.findElement(By.xpath("//div[text()='Passengers']")).click();
+		driver.findElement(By.id("divpaxinfo")).click();
 
-		for (int click = 1; click < 5; click++) {
-			driver.findElement(By.xpath("//*[@data-testid='Adult-testID-plus-one-cta']")).click();
-		}
+//		for (int click = 1; click < 5; click++) {
+//			driver.findElement(By.xpath("//*[@data-testid='Adult-testID-plus-one-cta']")).click();
+//		}
 
 		driver.quit();
 	}
