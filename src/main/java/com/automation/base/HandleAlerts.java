@@ -10,7 +10,7 @@ public class HandleAlerts {
 
 	public static void main(String[] args) {
 
-		String text = "ajaaj";
+		String text = "Ajaaj";
 
 		WebDriver driver = new ChromeDriver();
 
@@ -21,6 +21,10 @@ public class HandleAlerts {
 		driver.findElement(By.cssSelector("[id='alertbtn']")).click();
 		System.out.println(driver.switchTo().alert().getText());
 		driver.switchTo().alert().accept();
+		driver.findElement(By.id("name")).sendKeys(text);
+		driver.findElement(By.cssSelector("[id='confirmbtn']")).click();
+		System.out.println(driver.switchTo().alert().getText());
+		driver.switchTo().alert().dismiss();
 
 		driver.quit();
 	}
