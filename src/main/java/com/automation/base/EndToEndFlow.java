@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class EndToEndFlow {
 
@@ -26,6 +27,13 @@ public class EndToEndFlow {
 				.click();
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
+
+		if (driver.findElement(By.id("Div1")).getDomAttribute("style").contains("0.5")) {
+			System.out.println("It's disabled");
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertTrue(false);
+		}
 
 		driver.findElement(By.id("divpaxinfo")).click();
 
