@@ -13,7 +13,7 @@ public class AddMutlipleProductToCard {
 
 	public static void main(String[] args) throws InterruptedException {
 		int count = 0;
-		String[] item = { "Cucumber", "Brocolli", "Beetroot" };
+		String[] item = { "Cucumber", "Brocolli", "Beetroot", "Carrot" };
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -44,7 +44,7 @@ public class AddMutlipleProductToCard {
 			}
 
 		}
-		// driver.quit();
+		driver.quit();
 	}
 
 }
