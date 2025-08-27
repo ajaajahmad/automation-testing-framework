@@ -12,8 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AddMutlipleProductToCard {
 
 	public static void main(String[] args) throws InterruptedException {
-
-		String[] item = { "Cucumber", "Brocolli" };
+		int count = 0;
+		String[] item = { "Cucumber", "Brocolli", "Beetroot" };
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -35,11 +35,16 @@ public class AddMutlipleProductToCard {
 			List productName = Arrays.asList(item);
 
 			if (productName.contains(requiredName)) {
-				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+				count++;
+				driver.findElements(By.xpath("//*[@class=\"product-action\"]/button")).get(i).click();
+
+				if (count == item.length) {
+					break;
+				}
 			}
 
 		}
-		driver.quit();
+		// driver.quit();
 	}
 
 }
