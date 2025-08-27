@@ -30,7 +30,7 @@ public class AddProductToCard {
 				break;
 			}
 		}
-
+		driver.quit();
 	}
 
 }
