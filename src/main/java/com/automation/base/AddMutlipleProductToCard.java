@@ -35,7 +35,9 @@ public class AddMutlipleProductToCard {
 			List productName = Arrays.asList(item);
 
 			if (productName.contains(requiredName)) {
+
 				count++;
+
 				driver.findElements(By.xpath("//*[@class=\"product-action\"]/button")).get(i).click();
 
 				if (count == item.length) {
