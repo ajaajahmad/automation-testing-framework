@@ -12,6 +12,8 @@ public class AddMutlipleProductToCard {
 
 	public static void main(String[] args) {
 
+		String[] productNames = { "Cucumber", "Brocolli" };
+
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
