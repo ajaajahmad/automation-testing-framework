@@ -27,12 +27,11 @@ public class AddMutlipleProductToCard {
 
 			String[] originalName = products.get(i).getText().split("-");
 
+			// Format originalName to get requiredName
 			String requiredName = originalName[0].trim();
 
-			// Format originalName to get requiredName
 			// Convert array into array list for easy search
 			// Check whether name you extracted is present in array or not
-
 			List productName = Arrays.asList(item);
 
 			if (productName.contains(requiredName)) {
