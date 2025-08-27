@@ -1,6 +1,7 @@
 package com.automation.base;
 
 import java.time.Duration;
+import java.time.temporal.TemporalAmount;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -23,9 +24,9 @@ public class AddProductToCard {
 		for (int i = 0; i < products.size(); i++) {
 
 			String name = products.get(i).getText();
-			
+
 			if (name.contains("Cucumber")) {
-				driver.findElement(By.xpath("//button[text{}='ADD TO CART']")).click();
+				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
 				break;
 			}
 		}
