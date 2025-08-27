@@ -1,6 +1,7 @@
 package com.automation.base;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,9 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AddMutlipleProductToCard {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
-		String[] productName = { "Cucumber", "Brocolli" };
+		String[] item = { "Cucumber", "Brocolli" };
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -24,12 +25,20 @@ public class AddMutlipleProductToCard {
 
 		for (int i = 0; i < products.size(); i++) {
 
-			String name = products.get(i).getText();
+			String[] originalName = products.get(i).getText().split("-");
 
-			if (name.contains("Cucumber")) {
+			String requiredName = originalName[0].trim();
+
+			// Format originalName to get requiredName
+			// Convert array into array list for easy search
+			// Check whether name you extracted is present in array or not
+
+			List productName = Arrays.asList(item);
+
+			if (productName.contains(requiredName)) {
 				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
-				break;
 			}
+
 		}
 		driver.quit();
 	}
