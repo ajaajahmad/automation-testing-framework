@@ -9,13 +9,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class AddToCardExercise {
+public class AddToCartExercise {
 
 	public static void main(String[] args) {
+		int matchedProductsCount = 0;
 
-		int count = 0;
-
-		String[] requiredProduct = { "Capsicum", "Mushroom", "Pumpkin", "Banana", "Cashews" };
+		String[] requiredProducts = { "Capsicum", "Mushroom", "Pumpkin", "Banana", "Cashews" };
 
 		WebDriver driver = new ChromeDriver();
 
@@ -24,21 +23,19 @@ public class AddToCardExercise {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
-		List<WebElement> items = driver.findElements(By.cssSelector("h4.product-name"));
+		List<WebElement> productNameElements = driver.findElements(By.cssSelector("h4.product-name"));
 
-		for (int i = 0; i < items.size(); i++) {
-			String[] products = items.get(i).getText().split("-");
-			String originalName = products[0].trim();
+		List<String> requiredProductList = Arrays.asList(requiredProducts);
 
-			List productName = Arrays.asList(requiredProduct);
+		for (int i = 0; i < productNameElements.size(); i++) {
+			String[] productNameParts = productNameElements.get(i).getText().split("-");
+			String productName = productNameParts[0].trim();
 
-			if (productName.contains(originalName)) {
-
-				count++;
-
+			if (requiredProductList.contains(productName)) {
+				matchedProductsCount++;
 				driver.findElements(By.xpath("//*[@class='product-action']/button")).get(i).click();
 
-				if (count == requiredProduct.length) {
+				if (matchedProductsCount == requiredProducts.length) {
 					break;
 				}
 			}
