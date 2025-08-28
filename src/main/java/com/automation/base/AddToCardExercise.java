@@ -26,11 +26,11 @@ public class AddToCardExercise {
 
 			if (products.contains("Capsicum")) {
 				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+				break;
 			}
-			break;
 		}
-		
-		driver.quit();
+
+		// driver.quit();
 	}
 
 }
