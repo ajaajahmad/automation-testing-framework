@@ -38,7 +38,7 @@ public class AddMutlipleProductToCard {
 
 				count++;
 
-				driver.findElements(By.xpath("//*[@class=\"product-action\"]/button")).get(i).click();
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
 				if (count == item.length) {
 					break;
@@ -46,7 +46,7 @@ public class AddMutlipleProductToCard {
 			}
 
 		}
-		driver.quit();
+		//driver.quit();
 	}
 
 }
