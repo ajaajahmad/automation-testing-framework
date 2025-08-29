@@ -22,9 +22,21 @@ public class AmazonAddToCart {
 		driver.get("https://www.amazon.in/");
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iPhone");
 		driver.findElement(By.id("nav-search-submit-button")).click();
-		List<WebElement> productNameElement = driver.findElements(By.xpath("//span[contains(text()=,'Apple iPhone')]"));
+		List<WebElement> productNameElement = driver
+				.findElements(By.xpath("//span[contains(text()*=,'Apple iPhone')]"));
 
-		productNameElement.contains("iPhone");
+		for (int i = 0; i < productNameElement.size(); i++) {
+
+			String machedProductName = productNameElement.get(i).getText();
+
+			if (machedProductName.contains("iPhone")) {
+
+				driver.findElements(By.xpath("//span[@class\"a-button-inner\"]/button")).get(i).click();
+				break;
+			}
+		}
+
+		driver.quit();
 	}
 
 }
