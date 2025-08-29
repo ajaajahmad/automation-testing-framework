@@ -22,6 +22,8 @@ public class AmazonAddToCart {
 		driver.get("https://www.amazon.in/");
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iPhone");
 		List<WebElement> productNameElement = driver.findElements(By.xpath("//span[contains(text()=,'Apple iPhone')]"));
+		
+		productNameElement.contains("iPhone");
 	}
 
 }
