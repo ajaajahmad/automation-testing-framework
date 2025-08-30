@@ -20,7 +20,6 @@ public class Synchronization {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
 		addItemsToCard(driver, requiredProducts);
@@ -29,6 +28,7 @@ public class Synchronization {
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.xpath("//div[@class='promoWrapper']/button")).click();
+
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 
 		driver.quit();
@@ -39,7 +39,6 @@ public class Synchronization {
 		int matchedProductsCount = 0;
 
 		List<WebElement> productNameElements = driver.findElements(By.cssSelector("h4.product-name"));
-
 		List<String> requiredProductList = Arrays.asList(requiredProducts);
 
 		for (int i = 0; i < productNameElements.size(); i++) {
