@@ -29,6 +29,7 @@ public class Synchronization {
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.xpath("//div[@class='promoWrapper']/button")).click();
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 
 		// driver.quit();
 	}
