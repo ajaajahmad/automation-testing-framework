@@ -31,7 +31,7 @@ public class Synchronization {
 		driver.findElement(By.xpath("//div[@class='promoWrapper']/button")).click();
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 
-		// driver.quit();
+		driver.quit();
 	}
 
 	public static void addItemsToCard(WebDriver driver, String[] requiredProducts) {
