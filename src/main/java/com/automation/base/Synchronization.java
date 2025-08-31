@@ -25,7 +25,7 @@ public class Synchronization {
 		// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
-		addItemsToCard(driver, requiredProducts);
+		addItemsToCart(driver, requiredProducts);
 
 		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
@@ -39,7 +39,7 @@ public class Synchronization {
 		driver.quit();
 	}
 
-	public static void addItemsToCard(WebDriver driver, String[] requiredProducts) {
+	public static void addItemsToCart(WebDriver driver, String[] requiredProducts) {
 
 		int matchedProductsCount = 0;
 
