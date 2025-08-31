@@ -17,6 +17,8 @@ public class FluentWaitExample {
 
 		WebDriver driver = new ChromeDriver();
 
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 		driver.findElement(By.xpath("//div[@id='start']/button")).click();
 
@@ -25,12 +27,16 @@ public class FluentWaitExample {
 
 		WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
-				return driver.findElement(By.cssSelector("[id='finish'] h4"));
+				if (driver.findElement(By.cssSelector("[id='finish'] h4")).isDisplayed()) {
+					return driver.findElement(By.cssSelector("[id='finish'] h4"));
+				} else {
+					return null;
+				}
 			}
 		});
 
-		System.out.println(driver.findElement(By.cssSelector("[id='finish'] h4")).isDisplayed());
+		System.out.println(driver.findElement(By.cssSelector("[id='finish'] h4")).getText());
 
-		// driver.quit();
+		driver.quit();
 	}
 }
