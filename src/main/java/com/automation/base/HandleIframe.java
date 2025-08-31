@@ -15,7 +15,8 @@ public class HandleIframe {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get("https://jqueryui.com/droppable/");
-		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='demo-frame']")));
+		// driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='demo-frame']")));
+		driver.switchTo().frame(0);
 
 		WebElement source = driver.findElement(By.id("draggable"));
 		WebElement destination = driver.findElement(By.id("droppable"));
