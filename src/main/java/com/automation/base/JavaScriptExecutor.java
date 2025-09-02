@@ -28,8 +28,11 @@ public class JavaScriptExecutor {
 
 		for (int i = 0; i < values.size(); i++) {
 
-			Integer.parseInt(values.get(i).getText());
+			System.out.println(Integer.parseInt(values.get(i).getText()));
+			
 		}
+		
+		driver.quit();
 	}
 
 }
