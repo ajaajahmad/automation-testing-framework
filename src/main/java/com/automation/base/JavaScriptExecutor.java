@@ -25,6 +25,11 @@ public class JavaScriptExecutor {
 		js.executeScript("document.querySelector('.tableFixHead').scrollTop=5000");
 
 		List<WebElement> values = driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)"));
+
+		for (int i = 0; i < values.size(); i++) {
+
+			Integer.parseInt(values.get(i).getText());
+		}
 	}
 
 }
