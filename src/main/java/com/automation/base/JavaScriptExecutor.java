@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class JavaScriptExecutor {
 
@@ -20,7 +21,12 @@ public class JavaScriptExecutor {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		js.executeScript("window.scrollBy(0,500)");
+		Actions action = new Actions(driver);
+
+		WebElement element = driver.findElement(By.cssSelector(".tableFixHead"));
+		action.scrollToElement(element).perform();
+
+//		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
 		js.executeScript("document.querySelector('.tableFixHead').scrollTop=5000");
 
