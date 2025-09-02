@@ -26,12 +26,14 @@ public class JavaScriptExecutor {
 
 		List<WebElement> values = driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)"));
 
-		for (int i = 0; i < values.size(); i++) {
+		int sum = 0;
 
-			System.out.println(Integer.parseInt(values.get(i).getText()));
-			
+		for (int i = 0; i < values.size(); i++) {
+			sum = sum + (Integer.parseInt(values.get(i).getText()));
 		}
-		
+
+		System.out.println(sum);
+
 		driver.quit();
 	}
 
