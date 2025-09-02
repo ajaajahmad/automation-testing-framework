@@ -1,8 +1,11 @@
 package com.automation.base;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class JavaScriptExecutor {
@@ -21,7 +24,7 @@ public class JavaScriptExecutor {
 		Thread.sleep(3000);
 		js.executeScript("document.querySelector('.tableFixHead').scrollTop=5000");
 
-		driver.findElement(By.cssSelector(".tableFixHead td:nth-child(4)"));
+		List<WebElement> values = driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)"));
 	}
 
 }
