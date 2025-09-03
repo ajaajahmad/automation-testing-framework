@@ -20,9 +20,9 @@ public class JavaScriptExecutor {
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
+
 		// Selenium WebDriver 4.x feature to scroll
-		
+
 //		Actions action = new Actions(driver);
 //		WebElement element = driver.findElement(By.cssSelector(".tableFixHead"));
 //		action.scrollToElement(element).perform();
@@ -40,6 +40,8 @@ public class JavaScriptExecutor {
 		}
 
 		System.out.println(sum);
+
+		System.out.println(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
 
 		driver.quit();
 	}
