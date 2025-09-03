@@ -20,13 +20,14 @@ public class JavaScriptExecutor {
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		// Selenium WebDriver 4.x feature to scroll
+		
+//		Actions action = new Actions(driver);
+//		WebElement element = driver.findElement(By.cssSelector(".tableFixHead"));
+//		action.scrollToElement(element).perform();
 
-		Actions action = new Actions(driver);
-
-		WebElement element = driver.findElement(By.cssSelector(".tableFixHead"));
-		action.scrollToElement(element).perform();
-
-//		js.executeScript("window.scrollBy(0,500)");
+		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
 		js.executeScript("document.querySelector('.tableFixHead').scrollTop=5000");
 
