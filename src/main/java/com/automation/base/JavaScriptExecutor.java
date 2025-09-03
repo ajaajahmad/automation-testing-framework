@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class JavaScriptExecutor {
 
@@ -33,15 +34,24 @@ public class JavaScriptExecutor {
 
 		List<WebElement> values = driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)"));
 
-		int sum = 0;
+		int totalSumValue = 0;
 
 		for (int i = 0; i < values.size(); i++) {
-			sum = sum + (Integer.parseInt(values.get(i).getText()));
+			totalSumValue = totalSumValue + (Integer.parseInt(values.get(i).getText()));
 		}
 
-		System.out.println(sum);
+		System.out.println(totalSumValue);
 
-		int total = Integer.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
+		int totalValue = Integer
+				.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
+
+		Assert.assertEquals(totalSumValue, totalValue);
+
+		if (totalSumValue == totalValue) {
+			System.out.println("totalSumValue eqaul to totalValue");
+		} else {
+			System.out.println("BotalSumValue not eqaul to totalValue");
+		}
 
 		driver.quit();
 	}
