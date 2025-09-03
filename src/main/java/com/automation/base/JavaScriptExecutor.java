@@ -41,7 +41,7 @@ public class JavaScriptExecutor {
 
 		System.out.println(sum);
 
-		System.out.println(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
+		int total = Integer.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
 
 		driver.quit();
 	}
