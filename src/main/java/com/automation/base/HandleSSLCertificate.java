@@ -10,6 +10,8 @@ public class HandleSSLCertificate {
 			
 		WebDriver driver = new ChromeDriver();
 		ChromeOptions options = new ChromeOptions();
+		
+		driver.get("");
 	}
 
 }
