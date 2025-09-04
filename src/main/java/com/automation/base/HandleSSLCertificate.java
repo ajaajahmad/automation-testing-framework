@@ -12,10 +12,10 @@ public class HandleSSLCertificate {
 
 		options.setAcceptInsecureCerts(true);
 
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(options);
 
 		driver.get("https://expired.badssl.com/");
-		
+
 		driver.quit();
 	}
 
