@@ -11,7 +11,7 @@ public class HandleBrokenLinks {
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get("https://expired.badssl.com/");
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		
 		
 	}
