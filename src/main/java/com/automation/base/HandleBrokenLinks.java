@@ -3,11 +3,14 @@ package com.automation.base;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class HandleBrokenLinks {
 
@@ -19,13 +22,21 @@ public class HandleBrokenLinks {
 		driver.manage().deleteAllCookies();
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 
-		String urlsElement = driver.findElement(By.cssSelector("a[href*='brokenlink']")).getAttribute("href");
+		List<WebElement> linkElement = driver.findElements(By.cssSelector("li[class='gf-li'] a"));
 
-		HttpURLConnection connection = (HttpURLConnection) new URL(urlsElement).openConnection();
-		connection.setRequestMethod("HEAD");
-		connection.connect();
-		int responseCode = connection.getResponseCode();
-		System.out.println(responseCode);
+		for (WebElement link : linkElement) {
+			String url = link.getAttribute("href");
+			HttpURLConnection connection = (HttpURLConnection) URI.create(url).toURL().openConnection();
+			connection.setRequestMethod("HEAD");
+			connection.connect();
+			int responseCode = connection.getResponseCode();
+			//System.out.println(responseCode);
+
+			if (responseCode > 400) {
+				System.out.println("Link with text " + link.getText() + " is broken with code " + responseCode);
+				Assert.assertTrue(false);
+			}
+		}
 
 		driver.quit();
 
