@@ -1,15 +1,17 @@
 package com.automation.base;
 
 import java.util.ArrayList;
-
-import org.testng.annotations.Test;
+import java.util.stream.Stream;
 
 public class StreamPartOne {
-	
-	@Test
-	public void streamFilter() {
-		ArrayList<String> names = new ArrayList<String>();
 
+	public static void main(String[] args) {
+
+		streamFilter();
+	}
+
+	public static void streamFilter() {
+		ArrayList<String> names = new ArrayList<>();
 		names.add("Ajaaj");
 		names.add("Ahmad");
 		names.add("Kalam");
@@ -18,6 +20,13 @@ public class StreamPartOne {
 
 		Long c = names.stream().filter(s -> s.startsWith("A")).count();
 		System.out.println(c);
+
+		long d = Stream.of("Alia", "Ahmed", "Karan", "Don").filter(s -> {
+			s.startsWith("A");
+			return true;
+		}).count();
+
+		System.out.println(d);
 	}
 
 }
