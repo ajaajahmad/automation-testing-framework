@@ -22,10 +22,12 @@ public class HandleBrokenLinks {
 		String urlsElement = driver.findElement(By.cssSelector("a[href*='brokenlink']")).getAttribute("href");
 
 		HttpURLConnection connection = (HttpURLConnection) new URL(urlsElement).openConnection();
-		connection.setRequestMethod("Head");
+		connection.setRequestMethod("HEAD");
 		connection.connect();
 		int responseCode = connection.getResponseCode();
 		System.out.println(responseCode);
+
+		driver.quit();
 
 	}
 
