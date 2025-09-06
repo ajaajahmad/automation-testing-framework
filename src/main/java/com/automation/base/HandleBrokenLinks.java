@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class HandleBrokenLinks {
 
@@ -24,20 +25,19 @@ public class HandleBrokenLinks {
 
 		List<WebElement> linkElement = driver.findElements(By.cssSelector("li[class='gf-li'] a"));
 
+		SoftAssert a = new SoftAssert();
+
 		for (WebElement link : linkElement) {
 			String url = link.getAttribute("href");
 			HttpURLConnection connection = (HttpURLConnection) URI.create(url).toURL().openConnection();
 			connection.setRequestMethod("HEAD");
 			connection.connect();
 			int responseCode = connection.getResponseCode();
-			//System.out.println(responseCode);
-
-			if (responseCode > 400) {
-				System.out.println("Link with text " + link.getText() + " is broken with code " + responseCode);
-				Assert.assertTrue(false);
-			}
+			// System.out.println(responseCode);
+			a.assertTrue(responseCode > 400,
+					"Link with text " + link.getText() + " is broken with code " + responseCode);
 		}
-
+		a.assertAll();
 		driver.quit();
 
 	}
