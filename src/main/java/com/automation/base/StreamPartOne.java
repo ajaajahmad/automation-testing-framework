@@ -27,6 +27,9 @@ public class StreamPartOne {
 		}).count();
 
 		System.out.println(d);
+
+		// names.stream().filter(s -> s.length() > 4).forEach(s -> System.out.println(s));
+		names.stream().filter(s -> s.length() > 4).limit(1).forEach(s -> System.out.println(s));
 	}
 
 }
