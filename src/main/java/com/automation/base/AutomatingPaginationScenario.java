@@ -14,42 +14,63 @@ public class AutomatingPaginationScenario {
 
 	public static void main(String[] args) {
 
+		// Initialize WebDriver (Chrome) and set browser properties
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().deleteAllCookies();
+
+		// Open the target webpage
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
-		// click on the column
+
+		// Click on the column header to trigger sorting (Product Name column)
 		driver.findElement(By.xpath("//tr/th[1]")).click();
-		// capture the web elements inot alist
+
+		// Capture the product name column elements into a list
 		List<WebElement> tableElements = driver.findElements(By.xpath("//tr/td[1]"));
-		// capture all web element list into a new (original) list
+
+		// Convert the list of WebElements to a list of Strings (product names)
 		List<String> originalList = tableElements.stream().map(s -> s.getText()).collect(Collectors.toList());
-		// sort on original list - step 3 sorted list
+
+		// Create a sorted version of the product name list
 		List<String> sortedList = originalList.stream().sorted().collect(Collectors.toList());
-		// compare sorted list with original list
+
+		// Compare the original list with the sorted list to verify sorting behavior
 		Assert.assertTrue(originalList.equals(sortedList));
 
-		// scan the name column with getText and print the price of "Rice"
+		// -------- PAGINATION SEARCH LOGIC --------
+		// Goal: Search for product named "Rice" across multiple pages and print its
+		// price
+		// To store price(s) once "Rice" is found
 		List<String> priceList;
+
 		do {
+			// Capture the first column again (product names) for the current page
 			List<WebElement> rows = driver.findElements(By.xpath("//tr/td[1]"));
+
+			// Stream through rows to find product named "Rice" and get its price
 			priceList = rows.stream().filter(s -> s.getText().contains("Rice")).map(s -> getVeggiesPrice(s))
 					.collect(Collectors.toList());
+
+			// Print the price(s) found (could be more than one match on a page)
 			priceList.forEach(a -> System.out.println(a));
+
+			// If "Rice" not found, click 'Next' to move to the next page
 			if (priceList.size() < 1) {
 				driver.findElement(By.cssSelector("a[aria-label='Next']")).click();
 			}
+
+			// Keep looping until "Rice" is found
 		} while (priceList.size() < 1);
 
+		// Close the browser session
 		driver.quit();
 	}
 
+	// Utility method to get the price from the adjacent <td> element using XPath
 	private static String getVeggiesPrice(WebElement s) {
-
+		// This finds the next cell (td) in the same row — i.e., the price column
 		String priceValue = s.findElement(By.xpath("following-sibling::td[1]")).getText();
-
 		return priceValue;
 	}
-
 }
