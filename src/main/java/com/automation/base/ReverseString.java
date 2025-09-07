@@ -4,6 +4,11 @@ public class ReverseString {
 
 	public static void main(String[] args) {
 
+		reverseString();
+	}
+
+	public static void imperativeStyle() {
+
 		String str = "hello";
 		char[] arr = str.toCharArray();
 		String rev = "";
@@ -13,6 +18,13 @@ public class ReverseString {
 		}
 
 		System.out.println(rev);
+	}
+
+	public static void reverseString() {
+
+		String str = "hello";
+		String reversed = new StringBuilder(str).reverse().toString();
+		System.out.println(reversed);
 	}
 
 }
