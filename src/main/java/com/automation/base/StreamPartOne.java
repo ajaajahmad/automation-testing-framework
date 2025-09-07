@@ -18,6 +18,11 @@ public class StreamPartOne {
 		names.add("Don");
 		names.add("Alia");
 
+		// There is no life to intermediate OP if there is no terminal OP.
+		// Terminal OP will execute only if intermediate OP (filter) returns true.
+		// We can create stream.
+		// How to use filter in streams API.
+
 		Long c = names.stream().filter(s -> s.startsWith("A")).count();
 		System.out.println(c);
 
@@ -28,7 +33,10 @@ public class StreamPartOne {
 
 		System.out.println(d);
 
-		// names.stream().filter(s -> s.length() > 4).forEach(s -> System.out.println(s));
+		// Print all the names in ArrayList.
+
+		// names.stream().filter(s -> s.length() > 4).forEach(s ->
+		// System.out.println(s));
 		names.stream().filter(s -> s.length() > 4).limit(1).forEach(s -> System.out.println(s));
 	}
 
