@@ -3,6 +3,7 @@ package com.automation.base;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.testng.Assert;
@@ -13,6 +14,8 @@ public class StreamPartOne {
 
 		streamFilter();
 		streamMap();
+		streamCollect();
+		assignmentStreams();
 	}
 
 	public static void streamFilter() {
@@ -46,7 +49,7 @@ public class StreamPartOne {
 	}
 
 	public static void streamMap() {
-		
+
 		ArrayList<String> namesOne = new ArrayList<>();
 		namesOne.add("man");
 		namesOne.add("Don");
@@ -62,11 +65,31 @@ public class StreamPartOne {
 		List<String> namesTwo = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
 		namesTwo.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase())
 				.forEach(s -> System.out.println(s));
-		
+
 		Stream<String> mergedStream = Stream.concat(namesOne.stream(), namesTwo.stream());
-		boolean flag = mergedStream.anyMatch(s->s.equalsIgnoreCase("man"));
+		boolean flag = mergedStream.anyMatch(s -> s.equalsIgnoreCase("man"));
 		System.out.println(flag);
 		Assert.assertTrue(flag);
+	}
+
+	public static void streamCollect() {
+
+		List<String> list = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
+		list.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase()).collect(Collectors.toList());
+		System.out.println(list.get(0));
+	}
+
+	public static void assignmentStreams() {
+
+		List<Integer> values = Arrays.asList(3, 2, 2, 7, 3, 9, 5, 1, 6, 7, 4);
+
+		// Print unique numbers from the above Array.
+		// Sort the Array - 3rd index
+
+		values.stream().distinct().forEach(s -> System.out.println(s));
+		values.stream().distinct().sorted().forEach(s -> System.out.println(s));
+		List<Integer> li = values.stream().distinct().sorted().collect(Collectors.toList());
+		System.out.println(li.get(3));
 	}
 
 }
