@@ -29,7 +29,6 @@ public class PerformWebTableSorting {
 		List<String> sortedList = originalList.stream().sorted().collect(Collectors.toList());
 		// compare sorted list with original list
 		Assert.assertTrue(originalList.equals(sortedList));
-
 		driver.quit();
 	}
 
