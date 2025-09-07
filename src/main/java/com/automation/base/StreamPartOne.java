@@ -1,6 +1,8 @@
 package com.automation.base;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class StreamPartOne {
@@ -45,7 +47,13 @@ public class StreamPartOne {
 
 		// Print all names in UPPER CASE which ends with letter "a".
 
-		Stream.of("Alia", "Ahmad", "Karan", "Don", "Shama").filter(s -> s.endsWith("a")).map(s -> s.toUpperCase())
+		Stream.of("Aliya", "Ahmed", "Karan", "Don", "Shama").filter(s -> s.endsWith("a")).map(s -> s.toUpperCase())
+				.forEach(s -> System.out.println(s));
+
+		// Print all names in sorted and UPPER CASE which starts with letter "A".
+
+		List<String> names = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
+		names.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase())
 				.forEach(s -> System.out.println(s));
 	}
 
