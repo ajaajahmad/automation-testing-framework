@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.testng.Assert;
+
 public class StreamPartOne {
 
 	public static void main(String[] args) {
@@ -44,6 +46,11 @@ public class StreamPartOne {
 	}
 
 	public static void streamMap() {
+		
+		ArrayList<String> namesOne = new ArrayList<>();
+		namesOne.add("man");
+		namesOne.add("Don");
+		namesOne.add("woman");
 
 		// Print all names in UPPER CASE which ends with letter "a".
 
@@ -52,9 +59,14 @@ public class StreamPartOne {
 
 		// Print all names in sorted and UPPER CASE which starts with letter "A".
 
-		List<String> names = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
-		names.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase())
+		List<String> namesTwo = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
+		namesTwo.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase())
 				.forEach(s -> System.out.println(s));
+		
+		Stream<String> mergedStream = Stream.concat(namesOne.stream(), namesTwo.stream());
+		boolean flag = mergedStream.anyMatch(s->s.equalsIgnoreCase("man"));
+		System.out.println(flag);
+		Assert.assertTrue(flag);
 	}
 
 }
