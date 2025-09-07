@@ -8,6 +8,7 @@ public class StreamPartOne {
 	public static void main(String[] args) {
 
 		streamFilter();
+		streamMap();
 	}
 
 	public static void streamFilter() {
@@ -38,6 +39,14 @@ public class StreamPartOne {
 		// names.stream().filter(s -> s.length() > 4).forEach(s ->
 		// System.out.println(s));
 		names.stream().filter(s -> s.length() > 4).limit(1).forEach(s -> System.out.println(s));
+	}
+
+	public static void streamMap() {
+
+		// Print all names in UPPER CASE which ends with letter "a".
+
+		Stream.of("Alia", "Ahmad", "Karan", "Don", "Shama").filter(s -> s.endsWith("a")).map(s -> s.toUpperCase())
+				.forEach(s -> System.out.println(s));
 	}
 
 }
