@@ -15,6 +15,11 @@ public class RelativeXPath {
 		WebElement nameText = driver.findElement(By.cssSelector("[name='name']"));
 		System.out.println(driver.findElement(RelativeLocator.with(By.tagName("label")).above(nameText)).getText());
 
+		WebElement dateOfBirthText = driver.findElement(By.cssSelector("label[for='dateofBirth']"));
+		System.out.println(driver
+				.findElement(RelativeLocator.with(By.cssSelector("input[class='form-control']")).below(dateOfBirthText))
+				.getText());
+
 		driver.quit();
 	}
 
