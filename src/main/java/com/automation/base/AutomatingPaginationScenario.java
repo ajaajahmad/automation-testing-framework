@@ -39,8 +39,8 @@ public class AutomatingPaginationScenario {
 		Assert.assertTrue(originalList.equals(sortedList));
 
 		// -------- PAGINATION SEARCH LOGIC --------
-		// Goal: Search for product named "Rice" across multiple pages and print its
-		// price
+		// Goal: Search for product named "Rice" across multiple pages and print its price
+		
 		// To store price(s) once "Rice" is found
 		List<String> priceList;
 
