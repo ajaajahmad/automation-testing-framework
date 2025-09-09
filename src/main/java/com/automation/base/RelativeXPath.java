@@ -18,6 +18,11 @@ public class RelativeXPath {
 		WebElement dateOfBirthText = driver.findElement(By.cssSelector("label[for='dateofBirth']"));
 		driver.findElement(RelativeLocator.with(By.cssSelector("input")).below(dateOfBirthText)).click();
 
+		WebElement iceCreamLabel = driver
+				.findElement(By.xpath("//label[text()='Check me out if you Love IceCreams!']"));
+		driver.findElement(RelativeLocator.with(By.tagName("input")).toLeftOf(iceCreamLabel)).click();
+		
+		driver.quit();
 	}
 
 }
