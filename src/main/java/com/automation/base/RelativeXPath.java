@@ -21,7 +21,11 @@ public class RelativeXPath {
 		WebElement iceCreamLabel = driver
 				.findElement(By.xpath("//label[text()='Check me out if you Love IceCreams!']"));
 		driver.findElement(RelativeLocator.with(By.tagName("input")).toLeftOf(iceCreamLabel)).click();
-		
+
+		WebElement radioButton = driver.findElement(By.id("inlineRadio1"));
+		System.out.println(
+				driver.findElement(RelativeLocator.with(By.tagName("label")).toRightOf(radioButton)).getText());
+
 		driver.quit();
 	}
 
