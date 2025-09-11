@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.testng.Assert;
 
 public class StreamPartOne {
@@ -19,7 +18,9 @@ public class StreamPartOne {
 	}
 
 	public static void streamFilter() {
+
 		ArrayList<String> names = new ArrayList<>();
+
 		names.add("Ajaaj");
 		names.add("Ahmad");
 		names.add("Kalam");
@@ -32,6 +33,7 @@ public class StreamPartOne {
 		// How to use filter in streams API.
 
 		Long c = names.stream().filter(s -> s.startsWith("A")).count();
+
 		System.out.println(c);
 
 		long d = Stream.of("Alia", "Ahmed", "Karan", "Don").filter(s -> {
@@ -51,6 +53,7 @@ public class StreamPartOne {
 	public static void streamMap() {
 
 		ArrayList<String> namesOne = new ArrayList<>();
+
 		namesOne.add("man");
 		namesOne.add("Don");
 		namesOne.add("woman");
@@ -68,7 +71,9 @@ public class StreamPartOne {
 
 		Stream<String> mergedStream = Stream.concat(namesOne.stream(), namesTwo.stream());
 		boolean flag = mergedStream.anyMatch(s -> s.equalsIgnoreCase("man"));
+
 		System.out.println(flag);
+
 		Assert.assertTrue(flag);
 	}
 
@@ -88,7 +93,9 @@ public class StreamPartOne {
 
 		values.stream().distinct().forEach(s -> System.out.println(s));
 		values.stream().distinct().sorted().forEach(s -> System.out.println(s));
+
 		List<Integer> li = values.stream().distinct().sorted().collect(Collectors.toList());
+
 		System.out.println(li.get(3));
 	}
 
