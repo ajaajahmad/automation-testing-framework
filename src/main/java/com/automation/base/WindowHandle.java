@@ -2,7 +2,6 @@ package com.automation.base;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,8 +16,7 @@ public class WindowHandle {
 		driver.get("https://rahulshettyacademy.com/loginpagePractise/");
 		driver.findElement(By.xpath("//div[@class='float-right']/a[1]")).click();
 
-		Set<String> windows = driver.getWindowHandles(); // [parentId, childId]
-
+		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterate = windows.iterator();
 
 		String parentId = iterate.next();
@@ -30,7 +28,6 @@ public class WindowHandle {
 				.split(" ")[0];
 		driver.switchTo().window(parentId);
 		driver.findElement(By.id("username")).sendKeys(emailId);
-
 		driver.quit();
 	}
 
