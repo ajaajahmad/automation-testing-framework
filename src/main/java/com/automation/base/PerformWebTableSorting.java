@@ -3,7 +3,6 @@ package com.automation.base;
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +14,7 @@ public class PerformWebTableSorting {
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().deleteAllCookies();
@@ -28,7 +28,9 @@ public class PerformWebTableSorting {
 		// sort on original list - step 3 sorted list
 		List<String> sortedList = originalList.stream().sorted().collect(Collectors.toList());
 		// compare sorted list with original list
+
 		Assert.assertTrue(originalList.equals(sortedList));
+
 		driver.quit();
 	}
 
