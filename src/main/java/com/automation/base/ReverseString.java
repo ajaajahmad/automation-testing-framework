@@ -23,7 +23,9 @@ public class ReverseString {
 	public static void reverseString() {
 
 		String str = "hello world";
+
 		String reversed = new StringBuilder(str).reverse().toString();
+
 		System.out.println(reversed);
 	}
 
