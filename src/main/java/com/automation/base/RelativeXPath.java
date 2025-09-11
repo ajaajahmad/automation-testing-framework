@@ -11,11 +11,15 @@ public class RelativeXPath {
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
+
 		driver.get("https://rahulshettyacademy.com/angularpractice/");
+
 		WebElement nameText = driver.findElement(By.cssSelector("[name='name']"));
+
 		System.out.println(driver.findElement(RelativeLocator.with(By.tagName("label")).above(nameText)).getText());
 
 		WebElement dateOfBirthText = driver.findElement(By.cssSelector("label[for='dateofBirth']"));
+
 		driver.findElement(RelativeLocator.with(By.cssSelector("input")).below(dateOfBirthText)).click();
 
 		WebElement iceCreamLabel = driver
