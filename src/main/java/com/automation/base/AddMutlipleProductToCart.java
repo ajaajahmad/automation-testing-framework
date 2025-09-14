@@ -46,7 +46,7 @@ public class AddMutlipleProductToCart {
 			}
 
 		}
-		//driver.quit();
+		driver.quit();
 	}
 
 }
