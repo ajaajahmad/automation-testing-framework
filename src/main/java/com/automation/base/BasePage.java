@@ -56,49 +56,49 @@ public class BasePage {
 			throw new RuntimeException("Login Failed", e);
 		}
 	}
-	
+
 	public WebElement waitForElement(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
 
-    protected WebElement waitForElementVisible(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
+	protected WebElement waitForElementVisible(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
 
-    protected WebElement waitForElementClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
+	protected WebElement waitForElementClickable(By locator) {
+		return wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 
-    protected void click(WebElement element) {
-    	waitHelper.waitForElementToBeClickable(element);
-        element.click();
-    }
+	protected void click(WebElement element) {
+		waitHelper.waitForElementToBeClickable(element);
+		element.click();
+	}
 
-    protected void sendKeys(WebElement element, String text) {
-    	waitHelper.waitForElementToBeVisible(element);
-        element.clear();
-        element.sendKeys(text);
-    }
+	protected void sendKeys(WebElement element, String text) {
+		waitHelper.waitForElementToBeVisible(element);
+		element.clear();
+		element.sendKeys(text);
+	}
 
-    protected String getText(WebElement element) {
-    	waitHelper.waitForElementToBeVisible(element);
-        return element.getText();
-    }
+	protected String getText(WebElement element) {
+		waitHelper.waitForElementToBeVisible(element);
+		return element.getText();
+	}
 
-    protected boolean isElementDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
+	protected boolean isElementDisplayed(WebElement element) {
+		try {
+			return element.isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
-    protected void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
+	protected void scrollToElement(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 
-    public void sleep(long millis) {
-        waitHelper.staticWait(millis);
-    }
+	public void sleep(long millis) {
+		waitHelper.staticWait(millis);
+	}
 }
