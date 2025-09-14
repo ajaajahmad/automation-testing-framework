@@ -14,13 +14,11 @@ public class AutomatingPaginationScenario {
 
 	public static void main(String[] args) {
 
-		// Initialize WebDriver (Chrome) and set browser properties
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().deleteAllCookies();
 
-		// Open the target webpage
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
 
 		// Click on the column header to trigger sorting (Product Name column)
@@ -39,8 +37,9 @@ public class AutomatingPaginationScenario {
 		Assert.assertTrue(originalList.equals(sortedList));
 
 		// -------- PAGINATION SEARCH LOGIC --------
-		// Goal: Search for product named "Rice" across multiple pages and print its price
-		
+		// Goal: Search for product named "Rice" across multiple pages and print its
+		// price
+
 		// To store price(s) once "Rice" is found
 		List<String> priceList;
 
