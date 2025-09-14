@@ -17,121 +17,120 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-@Listeners({TestListener.class})
+@Listeners({ TestListener.class })
 public abstract class BaseTest {
 
-    protected WebDriver driver;
-    protected static final Logger logger = LogManager.getLogger(BaseTest.class);
-    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+	protected WebDriver driver;
+	protected static final Logger logger = LogManager.getLogger(BaseTest.class);
+	private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
-    @BeforeSuite
-    public void beforeSuite() {
-        ExtentReportManager.initializeReport();
-        logger.info("Test suite started - " + this.getClass().getSimpleName());
-    }
+	@BeforeSuite
+	public void beforeSuite() {
+		ExtentReportManager.initializeReport();
+		logger.info("Test suite started - " + this.getClass().getSimpleName());
+	}
 
-    @BeforeClass
-    public void beforeClass() {
-        logger.info("Starting test class: " + this.getClass().getSimpleName());
-    }
+	@BeforeClass
+	public void beforeClass() {
+		logger.info("Starting test class: " + this.getClass().getSimpleName());
+	}
 
-    @BeforeMethod
-    public void setUp() {
-        String browserType = ConfigReader.getProperty("browser");
-        String applicationUrl = ConfigReader.getProperty("url");
+	@BeforeMethod
+	public void setUp() {
+		String browserType = ConfigReader.getProperty("browser");
+		String applicationUrl = ConfigReader.getProperty("url");
 
-        driver = initializeDriver(browserType);
-        driverThreadLocal.set(driver);
+		driver = initializeDriver(browserType);
+		driverThreadLocal.set(driver);
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.get(applicationUrl);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.get(applicationUrl);
 
-        logger.info("Browser '" + browserType + "' launched and navigated to: " + applicationUrl);
-    }
+		logger.info("Browser '" + browserType + "' launched and navigated to: " + applicationUrl);
+	}
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-            driverThreadLocal.remove();
-            logger.info("Browser closed");
-        }
-    }
+	@AfterMethod
+	public void tearDown() {
+		if (driver != null) {
+			driver.quit();
+			driverThreadLocal.remove();
+			logger.info("Browser closed");
+		}
+	}
 
-    @AfterClass
-    public void afterClass() {
-        logger.info("Completed test class: " + this.getClass().getSimpleName());
-    }
+	@AfterClass
+	public void afterClass() {
+		logger.info("Completed test class: " + this.getClass().getSimpleName());
+	}
 
-    @AfterSuite
-    public void afterSuite() {
-        ExtentReportManager.flushReport();
-        logger.info("Test suite completed - " + this.getClass().getSimpleName());
-    }
+	@AfterSuite
+	public void afterSuite() {
+		ExtentReportManager.flushReport();
+		logger.info("Test suite completed - " + this.getClass().getSimpleName());
+	}
 
-    public static WebDriver getDriver() {
-        return driverThreadLocal.get();
-    }
+	public static WebDriver getDriver() {
+		return driverThreadLocal.get();
+	}
 
-    private WebDriver initializeDriver(String browserType) {
-        WebDriver webDriver;
-        String browser = browserType.toLowerCase();
+	private WebDriver initializeDriver(String browserType) {
+		WebDriver webDriver;
+		String browser = browserType.toLowerCase();
 
-        switch (browser) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--disable-notifications");
-                chromeOptions.addArguments("--disable-popup-blocking");
-                chromeOptions.addArguments("--disable-web-security");
-                chromeOptions.addArguments("--disable-features=VizDisplayCompositor");
+		switch (browser) {
+		case "chrome":
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--disable-notifications");
+			chromeOptions.addArguments("--disable-popup-blocking");
+			chromeOptions.addArguments("--disable-web-security");
+			chromeOptions.addArguments("--disable-features=VizDisplayCompositor");
 
-                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
-                    chromeOptions.addArguments("--headless");
-                    logger.info("Chrome running in headless mode");
-                }
+			if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
+				chromeOptions.addArguments("--headless");
+				logger.info("Chrome running in headless mode");
+			}
 
-                webDriver = new ChromeDriver(chromeOptions);
-                logger.info("Chrome driver initialized");
-                break;
+			webDriver = new ChromeDriver(chromeOptions);
+			logger.info("Chrome driver initialized");
+			break;
 
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
 
-                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
-                    firefoxOptions.addArguments("--headless");
-                    logger.info("Firefox running in headless mode");
-                }
+			if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
+				firefoxOptions.addArguments("--headless");
+				logger.info("Firefox running in headless mode");
+			}
 
-                webDriver = new FirefoxDriver(firefoxOptions);
-                logger.info("Firefox driver initialized");
-                break;
+			webDriver = new FirefoxDriver(firefoxOptions);
+			logger.info("Firefox driver initialized");
+			break;
 
-            case "edge":
-                WebDriverManager.edgedriver().setup();
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--disable-notifications");
-                edgeOptions.addArguments("--disable-popup-blocking");
+		case "edge":
+			WebDriverManager.edgedriver().setup();
+			EdgeOptions edgeOptions = new EdgeOptions();
+			edgeOptions.addArguments("--disable-notifications");
+			edgeOptions.addArguments("--disable-popup-blocking");
 
-                if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
-                    edgeOptions.addArguments("--headless");
-                    logger.info("Edge running in headless mode");
-                }
+			if ("true".equalsIgnoreCase(ConfigReader.getProperty("headless"))) {
+				edgeOptions.addArguments("--headless");
+				logger.info("Edge running in headless mode");
+			}
 
-                webDriver = new EdgeDriver(edgeOptions);
-                logger.info("Edge driver initialized");
-                break;
+			webDriver = new EdgeDriver(edgeOptions);
+			logger.info("Edge driver initialized");
+			break;
 
-            default:
-                String errorMessage = "Browser not supported: " + browserType +
-                        ". Supported: chrome, firefox, edge";
-                logger.error(errorMessage);
-                throw new IllegalArgumentException(errorMessage);
-        }
+		default:
+			String errorMessage = "Browser not supported: " + browserType + ". Supported: chrome, firefox, edge";
+			logger.error(errorMessage);
+			throw new IllegalArgumentException(errorMessage);
+		}
 
-        return webDriver;
-    }
+		return webDriver;
+	}
 }
