@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class InvokingMultipleWindow {
+public class CaptureWebElementScreenshot {
 
 	public static void main(String[] args) throws IOException {
 
@@ -36,6 +36,8 @@ public class InvokingMultipleWindow {
 		driver.switchTo().window(parentWindow);
 		driver.findElements(By.cssSelector("input[name='name']")).get(1).sendKeys(courseText);
 		WebElement nameField = driver.findElement(By.cssSelector("input[name='name']"));
+
+		// Screenshot of Element
 		File file = nameField.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(file, new File("name.png"));
 
