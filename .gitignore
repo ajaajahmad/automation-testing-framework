@@ -17,7 +17,8 @@
 # Maven
 target/
 *.iml
-
+test-output/*
+test-output/
 # IntelliJ
 .idea/
 *.ipr
