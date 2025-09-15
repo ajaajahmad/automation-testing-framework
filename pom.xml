@@ -25,6 +25,10 @@
 		<poi.version>5.2.4</poi.version>
 		<maven.surefire.version>3.2.2</maven.surefire.version>
 		<maven.compiler.version>3.11.0</maven.compiler.version>
+
+		<!-- Default values for system properties -->
+		<browser>chrome</browser>
+		<environment>dev</environment>
 	</properties>
 
 	<dependencies>
