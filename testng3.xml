@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Load Department">
+
+	<test name="Regression">
+		<groups>
+			<run>
+				<include name="Smoke" />
+			</run>
+		</groups>
+
+		<classes>
+			<class name="com.automation.pages.DayOne" />
+			<class name="com.automation.pages.DayTwo" />
+			<class name="com.automation.pages.DayThree" />
+			<class name="com.automation.pages.DayFour" />
+		</classes>
+	</test>
+</suite>
