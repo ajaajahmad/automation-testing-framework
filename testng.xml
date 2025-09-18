@@ -16,7 +16,7 @@
 		<classes>
 			<class name="com.automation.pages.DayThree">
 				<methods>
-					<exclude name="mobileLoginCarLoan" />
+					<exclude name="mobile.*" />
 				</methods>
 			</class>
 		</classes>
