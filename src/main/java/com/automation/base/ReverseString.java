@@ -4,12 +4,12 @@ public class ReverseString {
 
 	public static void main(String[] args) {
 
-		reverseString();
+		imperativeStyle();
 	}
 
 	public static void imperativeStyle() {
 
-		String str = "hello";
+		String str = "how are you";
 		char[] arr = str.toCharArray();
 		String rev = "";
 

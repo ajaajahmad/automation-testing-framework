@@ -16,6 +16,8 @@ public class HandleSSLCertificate {
 
 		driver.get("https://expired.badssl.com/");
 
+		System.out.println(driver.getTitle());
+
 		driver.quit();
 	}
 
