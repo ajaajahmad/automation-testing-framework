@@ -11,8 +11,8 @@ public class DayTwo {
 	}
 
 	@BeforeTest
-	public void beforeMethod() {
-		System.out.println("before method");
+	public void beforeTest() {
+		System.out.println("before test");
 	}
 
 }

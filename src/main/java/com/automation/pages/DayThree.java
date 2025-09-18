@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class DayThree {
@@ -13,7 +14,12 @@ public class DayThree {
 	public void mobileLoginCarLoan() {
 		System.out.println("mobile login car");
 	}
-
+	
+	@BeforeSuite
+	public void beforeSuite() {
+		System.out.println("before suite");
+	}
+	
 	@Test
 	public void loginAPICarLoad() {
 		System.out.println("login api car");
