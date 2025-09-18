@@ -3,7 +3,11 @@
 <suite name="Load Department">
 	<test name="Personal Loan">
 		<classes>
-			<class name="com.automation.pages.DayOne" />
+			<class name="com.automation.pages.DayOne">
+				<methods>
+					<include name="firstTest" />
+				</methods>
+			</class>
 			<class name="com.automation.pages.DayTwo" />
 			<class name="com.automation.pages.DayFour" />
 		</classes>
