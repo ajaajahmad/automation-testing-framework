@@ -52,12 +52,18 @@ public class DayThree {
 	public void loginAPICarLoad() {
 		System.out.println("login api car");
 	}
-	
+
 	@DataProvider
 	public static void getData() {
-		
-		Object[][] date = new Object[3][2];
-		
+
+		Object[][] data = new Object[3][2];
+
+		data[0][0] = "firstsetusername";
+		data[0][1] = "firstpassword";
+		data[1][0] = "secondsetusername";
+		data[1][1] = "secondpassword";
+		data[2][0] = "thirdsetusername";
+		data[2][1] = "thirdpassword";
 	}
 
 }
