@@ -56,7 +56,7 @@ public class DayThree {
 	@DataProvider
 	public static void getData() {
 		
-		
+		Object[][] date = new Object[3][2];
 		
 	}
 
