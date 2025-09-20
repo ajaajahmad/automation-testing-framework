@@ -14,7 +14,7 @@
 		</classes>
 	</test>
 	<test name="Car Loan">
-		<parameter name="URL" value="personalload3.com" />
+		<parameter name="URL" value="www.3.google.com" />
 		<classes>
 			<class name="com.automation.pages.DayThree">
 				<methods>
