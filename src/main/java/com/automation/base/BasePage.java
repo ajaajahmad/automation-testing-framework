@@ -25,8 +25,6 @@ public class BasePage {
 	@FindBy(id = "login")
 	protected WebElement LoginButton;
 
-	protected static int stepCounter = 1;
-
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 	protected static Logger log;
@@ -50,9 +48,9 @@ public class BasePage {
 			waitHelper.staticWait(2000);
 			Username.sendKeys(USERNAME);
 			Password.sendKeys(PASSWORD + Keys.ENTER);
-			log.info("Step " + stepCounter++ + ": Logged in successfully");
+			log.info("Logged in successfully");
 		} catch (Exception e) {
-			log.error("Step " + stepCounter++ + ": Login failed.");
+			log.error(" Login failed.");
 			throw new RuntimeException("Login Failed", e);
 		}
 	}
