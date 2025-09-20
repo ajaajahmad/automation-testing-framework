@@ -44,7 +44,7 @@ public class DayThree {
 		System.out.println("before suite");
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void loginAPICarLoad() {
 		System.out.println("login api car");
 	}

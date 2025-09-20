@@ -11,7 +11,7 @@ public class DayOne {
 		System.out.println("after test");
 	}
 
-	@Test
+	@Test(timeOut=4000)
 	public void firstTest() {
 		System.out.println("hello");
 	}
