@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -50,6 +51,13 @@ public class DayThree {
 	@Test(enabled = false)
 	public void loginAPICarLoad() {
 		System.out.println("login api car");
+	}
+	
+	@DataProvider
+	public static void getData() {
+		
+		
+		
 	}
 
 }
