@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Load Department">
-	<parameter name="URL" value="personalload.com" />
 	<test name="Personal Loan">
+		<parameter name="URL" value="www.2and4.com" />
 		<classes>
 			<class name="com.automation.pages.DayOne">
 				<methods>
