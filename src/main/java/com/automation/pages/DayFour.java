@@ -1,12 +1,15 @@
 package com.automation.pages;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class DayFour {
-
+	
+	@Parameters("URL")
 	@Test
-	public void webLoginHomeLoan() {
+	public void webLoginHomeLoan(String urlname) {
 		System.out.println("web login home");
+		System.out.println(urlname);
 	}
 
 	@Test(groups={"Smoke"})
