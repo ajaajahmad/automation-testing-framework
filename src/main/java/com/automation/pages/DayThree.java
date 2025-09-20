@@ -13,28 +13,28 @@ public class DayThree {
 	public void webLoginCarLoan() {
 		System.out.println("web login car");
 	}
-	
+
 	@BeforeClass
 	public void beforeClass() {
 		System.out.println("before class in class 3");
 	}
-	
+
 	@AfterClass
 	public void afterClass() {
 		System.out.println("after class in class 3");
 	}
-	
+
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("before method in class 3");
 	}
-	
+
 	@AfterMethod
 	public void afterMethod() {
 		System.out.println("after method in class 3");
 	}
 
-	@Test
+	@Test(dependsOnMethods = { "webLoginCarLoan" })
 	public void mobileLoginCarLoan() {
 		System.out.println("mobile login car");
 	}
@@ -44,7 +44,7 @@ public class DayThree {
 		System.out.println("before suite");
 	}
 
-	@Test(groups={"Smoke"})
+	@Test
 	public void loginAPICarLoad() {
 		System.out.println("login api car");
 	}
