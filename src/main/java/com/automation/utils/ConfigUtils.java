@@ -35,4 +35,17 @@ public class ConfigUtils {
 		}
 
 	}
+
+	public static String getProperty(String key) {
+
+		String value = properties.getProperty(key);
+		if (value == null) {
+			System.out.println("Property not found: " + key);
+		}
+		return value;
+	}
+
+	public static String getPriperty(String key, String defaultValue) {
+		return properties.getProperty(key, defaultValue);
+	}
 }
