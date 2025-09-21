@@ -45,7 +45,35 @@ public class ConfigUtils {
 		return value;
 	}
 
-	public static String getPriperty(String key, String defaultValue) {
+	public static String getProperty(String key, String defaultValue) {
 		return properties.getProperty(key, defaultValue);
+	}
+
+	public static String getLoginUrl() {
+		return getProperty("app.login.url");
+	}
+
+	public static String getBaseUrl() {
+		return getProperty("app.base.url");
+	}
+
+	public static String getUsername() {
+		return getProperty("login.username");
+	}
+
+	public static String getPassword() {
+		return getProperty("login.password");
+	}
+
+	public static int getImplicitTimeout() {
+		return Integer.parseInt(getProperty("browser.timeout.implicit", "15"));
+	}
+
+	public static int getExplicitTimeout() {
+		return Integer.parseInt(getProperty("browser.timeout.explicit", "30"));
+	}
+
+	public static int getPageTimeout() {
+		return Integer.parseInt(getProperty("browser.timeout.page", "60"));
 	}
 }
