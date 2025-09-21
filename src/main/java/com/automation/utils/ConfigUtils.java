@@ -30,7 +30,7 @@ public class ConfigUtils {
 				fileInput.close();
 			}
 		} catch (IOException e) {
-			System.out.println("❌ Failed to load properties file: " + e.getMessage());
+			System.out.println("Failed to load properties file: " + e.getMessage());
 			throw new RuntimeException("Cannot load configuration properties", e);
 		}
 
