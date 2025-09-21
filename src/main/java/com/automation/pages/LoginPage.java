@@ -1,34 +1,42 @@
 package com.automation.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import com.automation.base.BasePage;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
 	public LoginPage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
+		super(driver);
 	}
 
-	public static void main(String[] args) {
+	@FindBy(xpath = "//input[@formcontrolname='username']")
+	private WebElement userName;
+	@FindBy(xpath = "//input[@formcontrolname='password']")
+	private WebElement passWord;
+	@FindBy(css = "button[class='submit']")
+	private WebElement loginButton;
+
+	public void enterUsername(String username) {
+		userName.sendKeys(username);
 	}
 
-	public void login(String string, String string2) {
-		// TODO Auto-generated method stub
-
+	public void enterPassword(String password) {
+		passWord.sendKeys(password);
 	}
 
-	public boolean isLoginPageLoaded() {
-		// TODO Auto-generated method stub
-		return false;
+	public void clickLoginButton() {
+		loginButton.click();
 	}
 
-	public boolean isErrorMessageDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
+	public void userLogin(String username, String password) {
+		enterUsername(username);
+		enterPassword(password);
+		clickLoginButton();
 	}
 
-	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isLoginPageDisplayed() {
+		return userName.isDisplayed() && passWord.isDisplayed() && loginButton.isDisplayed();
 	}
-
 }
