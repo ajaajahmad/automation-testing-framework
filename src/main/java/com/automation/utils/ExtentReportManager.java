@@ -85,8 +85,8 @@ public class ExtentReportManager {
 		extentReports.setSystemInfo("OS", System.getProperty("os.name"));
 		extentReports.setSystemInfo("Java Version", System.getProperty("java.version"));
 		extentReports.setSystemInfo("User", System.getProperty("user.name"));
-		extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
-		extentReports.setSystemInfo("Environment", ConfigReader.getProperty("environment"));
-		extentReports.setSystemInfo("URL", ConfigReader.getProperty("url"));
+		extentReports.setSystemInfo("Browser", ConfigUtils.getProperty("browser"));
+		extentReports.setSystemInfo("Environment", ConfigUtils.getProperty("environment"));
+		extentReports.setSystemInfo("URL", ConfigUtils.getProperty("url"));
 	}
 }

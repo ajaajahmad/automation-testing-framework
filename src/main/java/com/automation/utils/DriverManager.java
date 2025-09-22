@@ -27,8 +27,8 @@ public class DriverManager {
     }
 
     public static void initializeDriver() {
-        String browser = ConfigReader.getProperty("browser").toLowerCase();
-        boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
+        String browser = ConfigUtils.getProperty("browser").toLowerCase();
+        boolean headless = Boolean.parseBoolean(ConfigUtils.getProperty("headless"));
 
         switch (browser) {
             case "chrome":
