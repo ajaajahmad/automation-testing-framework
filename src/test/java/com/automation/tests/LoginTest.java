@@ -80,8 +80,8 @@ public class LoginTest extends BaseTest {
 		Assert.assertFalse(loginUrl.isEmpty(), "Login URL should not be empty");
 
 		System.out.println("Configuration loaded successfully:");
-		System.out.println("- Username: " + username);
-		System.out.println("- Login URL: " + loginUrl);
+		System.out.println("Username: " + username);
+		System.out.println("Login URL: " + loginUrl);
 
 		System.out.println("Configuration verification test passed");
 	}
