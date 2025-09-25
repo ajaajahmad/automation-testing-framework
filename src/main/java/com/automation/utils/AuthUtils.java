@@ -33,7 +33,7 @@ public class AuthUtils {
 
 	public static boolean login(WebDriver driver, String username, String password) {
 		try {
-			System.out.println("Attempting login with username: " + username);
+			System.out.println("Attempting login");
 
 			AuthUtils auth = new AuthUtils(driver);
 
