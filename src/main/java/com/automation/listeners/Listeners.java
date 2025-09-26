@@ -13,7 +13,7 @@ public class Listeners implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Test Listener - failed");
+		System.out.println("Test Listener - failed " + result.getName());
 	}
 
 	@Override
