@@ -15,13 +15,18 @@ public class DayOne {
 	@Test(timeOut=4000)
 	public void firstTest() {
 		System.out.println("hello");
-		Assert.assertTrue(true);
 		
+	}
+	@Test
+	public void failTest() {
+		System.out.println("This test get failed");
+		Assert.assertTrue(false);
 	}
 
 	@Test(groups={"Smoke"})
 	public void secondTest() {
 		System.out.println("bye");
+
 	}
 
 	@AfterSuite

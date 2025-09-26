@@ -1,4 +1,4 @@
-package com.automation.pages;
+	package com.automation.pages;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
