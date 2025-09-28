@@ -6,7 +6,7 @@ public class PS1 extends PS {
 
 	@Test
 	public void runTest() {
-
+		int a = 3;
 		doThis();
 	}
 }
