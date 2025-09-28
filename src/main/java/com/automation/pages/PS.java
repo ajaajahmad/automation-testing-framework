@@ -2,7 +2,9 @@ package com.automation.pages;
 
 public class PS {
 	
-	public static void main(String[] args) {
+	//methods, variables
+	public void doThis() {
 		
+		System.out.println("i am here");
 	}
 }
