@@ -13,9 +13,11 @@ public class AddOneProductToCart {
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().deleteAllCookies();
+		
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
 		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
