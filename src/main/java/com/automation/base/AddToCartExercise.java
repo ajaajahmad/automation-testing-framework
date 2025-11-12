@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AddToCartExercise {
 
 	public static void main(String[] args) {
+		
 		int matchedProductsCount = 0;
 
 		String[] requiredProducts = { "Capsicum", "Mushroom", "Pumpkin", "Banana", "Cashews" };
@@ -23,8 +24,8 @@ public class AddToCartExercise {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		
 		List<WebElement> productNameElements = driver.findElements(By.cssSelector("h4.product-name"));
-
 		List<String> requiredProductList = Arrays.asList(requiredProducts);
 
 		for (int i = 0; i < productNameElements.size(); i++) {
