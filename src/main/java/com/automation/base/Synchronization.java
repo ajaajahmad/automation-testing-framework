@@ -18,6 +18,7 @@ public class Synchronization {
 		String[] requiredProducts = { "Capsicum", "Mushroom", "Pumpkin", "Banana", "Cashews" };
 
 		WebDriver driver = new ChromeDriver();
+		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 		driver.manage().window().maximize();

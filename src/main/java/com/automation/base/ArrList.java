@@ -6,6 +6,7 @@ import java.util.List;
 public class ArrList {
 
 	public static void main(String[] args) {
+		
 		ArrayList<String> a = new ArrayList<>();
 
 		a.add("Ajaaj");

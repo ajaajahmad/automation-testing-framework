@@ -30,13 +30,12 @@ public class XpathWithIndex {
         Actions actions = new Actions(driver);
         actions.moveToElement(menu).perform();
 
-        // Wait until submenu is visible and click on "King Single Beds"
+        // Wait until the submenu is visible and click on "King Single Beds"
         WebElement submenu = wait.until(ExpectedConditions.elementToBeClickable(
             By.xpath("//a[normalize-space()='King Single Beds']")
         ));
 
         submenu.click();
-
         driver.quit();
     }
 }

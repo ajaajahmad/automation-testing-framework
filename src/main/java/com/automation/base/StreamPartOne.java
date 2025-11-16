@@ -81,6 +81,7 @@ public class StreamPartOne {
 
 		List<String> list = Arrays.asList("Azwa", "Alia", "Ahmad", "Karan", "Don", "Arbaz");
 		list.stream().filter(s -> s.startsWith("A")).sorted().map(s -> s.toUpperCase()).collect(Collectors.toList());
+		
 		System.out.println(list.get(0));
 	}
 
