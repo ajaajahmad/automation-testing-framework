@@ -20,9 +20,9 @@ public class WindowHandle {
 		Iterator<String> iterate = windows.iterator();
 
 		String parentId = iterate.next();
-		String chidlId = iterate.next();
+		String childId = iterate.next();
 
-		driver.switchTo().window(chidlId);
+		driver.switchTo().window(childId);
 
 		String emailId = driver.findElement(By.cssSelector(".im-para.red")).getText().split("at")[1].trim()
 				.split(" ")[0];
