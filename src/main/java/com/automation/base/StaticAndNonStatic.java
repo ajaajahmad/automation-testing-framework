@@ -18,7 +18,7 @@ public class StaticAndNonStatic {
 
 	public static void main(String[] args) {
 
-		StaticAndNonStatic st new StaticAndNonStatic("Ajaaj", "Mumbra", "Mumbai");
+//		StaticAndNonStatic st new StaticAndNonStatic("Ajaaj", "Mumbra", "Mumbai");
 		
 	}
 
