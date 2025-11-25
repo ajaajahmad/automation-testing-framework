@@ -7,6 +7,7 @@ public class StaticAndNonStatic {
 	String city;
 
 	StaticAndNonStatic(String name, String address, String city) {
+
 		this.name = name;
 		this.address = address;
 		this.city = city;
