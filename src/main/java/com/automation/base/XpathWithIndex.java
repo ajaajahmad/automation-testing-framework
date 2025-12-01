@@ -27,8 +27,8 @@ public class XpathWithIndex {
             By.xpath("(//nav[@aria-label='menuItem'])[2]/a")
         ));
 
-        Actions actions = new Actions(driver);
-        actions.moveToElement(menu).perform();
+        Actions action = new Actions(driver);
+        action.moveToElement(menu).perform();
 
         // Wait until the submenu is visible and click on "King Single Beds"
         WebElement submenu = wait.until(ExpectedConditions.elementToBeClickable(
