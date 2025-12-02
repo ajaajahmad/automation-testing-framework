@@ -21,17 +21,13 @@ public class DropDownPractices {
 		driver.get("https://semantic-ui.com/modules/dropdown.html");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
 		By dropdownLocator = By.xpath("//div[contains(text(), 'Select Country')]");
-
 		WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownLocator));
 
 		dropdown.click();
 
 		By itemLocator = By.cssSelector(".menu .item");
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
-
 		List<WebElement> allListItem = dropdown.findElements(itemLocator);
 
 		driver.quit();
