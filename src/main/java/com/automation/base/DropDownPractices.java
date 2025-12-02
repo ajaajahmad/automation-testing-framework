@@ -17,7 +17,6 @@ public class DropDownPractices {
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
 		driver.get("https://semantic-ui.com/modules/dropdown.html");
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
