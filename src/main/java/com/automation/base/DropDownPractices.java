@@ -30,7 +30,16 @@ public class DropDownPractices {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(itemLocator));
 		List<WebElement> allListItem = dropdown.findElements(itemLocator);
 
-		driver.quit();
-	}
+		for (WebElement allOption : allListItem) {
+			
+			String text = allOption.getText();
+			
+			String value = allOption.getAttribute("af");
+			
+			System.out.println(text +""+""+ value);
+			
+			driver.quit();
+		}
 
+	}
 }
