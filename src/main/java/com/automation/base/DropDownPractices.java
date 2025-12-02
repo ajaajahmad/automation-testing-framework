@@ -17,11 +17,13 @@ public class DropDownPractices {
 		driver.manage().deleteAllCookies();
 		driver.get("https://semantic-ui.com/modules/dropdown.html");
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 		WebElement countryOption = driver.findElement(By.xpath("//div[contains(text(), 'Select Country')]"));
 
 		countryOption.click();
+		
+		
 
 		driver.quit();
 	}
