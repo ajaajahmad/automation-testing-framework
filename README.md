@@ -3,7 +3,7 @@
 A comprehensive automation testing framework built with Java, Maven, TestNG, and Selenium WebDriver following the Page Object Model design pattern.
 
 **Created by:** ajaajahmad
-**Last Updated:** 2025-08-08
+**Last Updated:** 2026-01-03
 **Framework Version:** 1.0.0
 
 ## 🚀 Features
